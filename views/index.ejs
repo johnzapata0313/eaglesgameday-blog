@@ -2,32 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>21 Savage Fans</title>
-  <link rel="shortcut icon" href="favicon.ico">
+  <title>Eagles Gameday Blog</title>
+  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>21 Savage</h1>
-  <h2>Why you trappin so hard?</h2>
+  <h1>Philadelphia Eagles</h1>
+  <h2>Gameday Blog</h2>
 
 
-  <h3>Messages</h3>
-  <ul class="messages">
-  <% for(var i=0; i<messages.length; i++) {%>
-    <li class="message">
-      <span><%= messages[i].name %></span>
-      <span><%= messages[i].msg %></span>
-      <span><%= messages[i].thumbUp %></span>
-      <span><%= messages[i].thumbDown %></span>
-      <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-      <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
-      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-    </li>
-  <% } %>
-  </ul>
+  <h3>What we're saying:</h3>
+<ul class="messages">
+<% for(var i=0; i<messages.length; i++) {%>
+  <li class="message">
+    <span><%= messages[i].name %></span>
+    <span><%= messages[i].msg %></span>
+    <% if(messages[i].timestamp) { %>
+      <span class="timestamp">
+        <%
+          const now = new Date();
+          const postTime = new Date(messages[i].timestamp);
+          const diffMs = now - postTime;
+          const diffMins = Math.floor(diffMs / 60000);
+          const diffHours = Math.floor(diffMins / 60);
+          const diffDays = Math.floor(diffHours / 24);
+          
+          let timeAgo;
+          if (diffMins < 1) {
+            timeAgo = "just now";
+          } else if (diffMins < 60) {
+            timeAgo = diffMins + " minute" + (diffMins === 1 ? "" : "s") + " ago";
+          } else if (diffHours < 24) {
+            timeAgo = diffHours + " hour" + (diffHours === 1 ? "" : "s") + " ago";
+          } else {
+            timeAgo = diffDays + " day" + (diffDays === 1 ? "" : "s") + " ago";
+          }
+        %>
+        <%= timeAgo %>
+      </span>
+    <% } %>
+    <span><%= messages[i].thumbUp %></span>
+    <span><%= messages[i].thumbDown %></span>
+    <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+    <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+    <!-- <span><i class="fa fa-trash" aria-hidden="true"></i></span> -->
+  </li>
+<% } %>
+</ul>
 
-  <h2>Add a message</h2>
+  <h2>Drop your thoughts:</h2>
 
   <form action="/messages" method="POST">
     <input type="text" placeholder="name" name="name">

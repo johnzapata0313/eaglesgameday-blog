@@ -4,11 +4,11 @@ const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 
 var db, collection;
-
+//line 8, do I need to create another cluster?
 const url = "mongodb+srv://demo:demo@cluster0-q2ojb.mongodb.net/test?retryWrites=true";
-const dbName = "demo";
+const dbName = "myblog";  
 
-app.listen(3000, () => {
+app.listen(1933, () => {
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
         if(error) {
             throw error;
@@ -29,9 +29,15 @@ app.get('/', (req, res) => {
     res.render('index.ejs', {messages: result})
   })
 })
-
+ 
 app.post('/messages', (req, res) => {
-  db.collection('messages').insertOne({name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown:0}, (err, result) => {
+  db.collection('messages').insertOne({
+    name: req.body.name, 
+    msg: req.body.msg, 
+    thumbUp: 0, 
+    thumbDown: 0,
+    timestamp: new Date()//had claude breakdown to me how to add the relevant time
+  }, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
     res.redirect('/')
