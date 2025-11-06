@@ -1,7 +1,35 @@
 body{
-  background: rgb(1, 199, 1);
-  color: gray
+  background-color: #00503C;; /* Eagles' original Kelly Green shade */;
+  color: gray;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 h3{
   margin-top: 40px;
+}
+@font-face {
+  font-family: 'Riking';
+  src: url('/fonts/Riking.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BodoniXT';
+  src: url('/fonts/BodoniXT.ttf') format('truetype');
+}
+
+h1, h2 {
+  font-family: 'Riking', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+body, h3, p, span, input, button, li {
+  font-family: 'BodoniXT', serif;
+}
+
+/* Optional: Add white color with shadow to h3 as well if desired */
+h3 {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
