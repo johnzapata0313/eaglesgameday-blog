@@ -1,4 +1,5 @@
 # Philadelphia Eagles Gameday Chatroom
+![B126F685-1618-4E64-8B5B-AC273183504A](https://github.com/user-attachments/assets/61ac0550-3582-41a7-a4ab-a520ea4150c2)
 
 A dedicated web-based chatroom for Philadelphia Eagles fans to connect, share reactions, and engage with fellow fans during gamedays and throughout the season.
 The Chatroom is a full-stack CRUD application designed to bring Eagles fans together in one central hub. This focused approach creates a unified community space where fans can post messages, react to plays, and cheer (or Boo) together live during games.
