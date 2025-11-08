@@ -39,32 +39,6 @@ The Chatroom is a full-stack CRUD application designed to bring Eagles fans toge
 - MongoDB Atlas account or local MongoDB instance
 - Git for version control
 
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/eagles-chatroom.git
-cd eagles-chatroom
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Configure your MongoDB connection in `server.js`:
-```javascript
-const url = "your-mongodb-connection-string";
-const dbName = "eaglesChatroom";
-```
-
-4. Start the server:
-```bash
-npm start
-```
-
-5. Open your browser to `http://localhost:1997`
-
 ## Lessons Learned
 
 ### 1. **Simplified Architecture**
@@ -86,31 +60,12 @@ db.collection('messages').find({}).sort({timestamp: -1}).toArray()
 
 **Result:** Removed navigation complexity, allowing fans to jump straight into the conversation without selecting a room.
 
-### 4. **Applying Previous Knowledge**
-**Success:** Leveraged lessons from the MLS chatroom project to avoid common pitfalls:
-- Started server only after database connection
-- Used `process.env.PORT` for deployment flexibility
-- Properly converted string IDs to `ObjectId` for MongoDB operations
-- Structured static files correctly from the start
-
-### 5. **Community-Focused Design**
+### 4. **Community-Focused Design**
 **Insight:** A team-specific chatroom creates stronger community engagement than generic platforms.
 
 **Observation:** Fans appreciate a dedicated space that reflects their team's identity through colors, logos, and focused content.
 
-### 6. **Scalability Considerations**
-**Learning:** While simple now, considered future features like:
-- Message volume during live games
-- Potential need for message pagination
-- Real-time updates vs. page refreshes
-- Moderation tools for heated game discussions
 
-### 7. **Deployment Efficiency**
-**Achievement:** Successfully deployed on first attempt by applying knowledge from previous project:
-- Correct environment variable usage
-- Proper folder structure for static assets
-- All files committed to GitHub
-- Understanding of Render's auto-deploy process
 
 ##  Key Takeaways
 
@@ -120,12 +75,3 @@ db.collection('messages').find({}).sort({timestamp: -1}).toArray()
 - **CRUD mastery** - Solidified understanding of Create, Read, Update, Delete operations
 - **Deployment confidence** - Became comfortable with the full development-to-production pipeline
 - **Theming enhances experience** - Team colors and branding create emotional connection
-
-##  Use Cases
-
-Perfect for:
-- **Game Day Commentary** - Live reactions during Eagles games
-- **Season Discussion** - Off-season trades, draft picks, roster moves
-- **Fan Community** - Building connections with fellow Eagles fans
-- **Hype Building** - Pre-game excitement and predictions
-- **Post-Game Analysis** - Celebrating wins or discussing tough losses
